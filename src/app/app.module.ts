@@ -1,18 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { GetusersService  } from './getusers.service'
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AutocompleteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GetusersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

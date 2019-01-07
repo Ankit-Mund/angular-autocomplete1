@@ -1,0 +1,6 @@
+<input #inputValue (keyup)="filterValues(inputValue)" />
+<div *ngIf='yourNewArray'>
+  <div *ngFor="let item of yourNewArray">
+    {{item}}
+  </div>
+</div>
