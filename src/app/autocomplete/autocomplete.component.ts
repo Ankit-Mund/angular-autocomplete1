@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetusersService  } from '../getusers.service'
+import { GetusersService } from '../getusers.service'
 
 @Component({
   selector: 'app-autocomplete',
@@ -15,30 +15,25 @@ export class AutocompleteComponent implements OnInit {
   // 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico',
   // 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington',
   //  'West Virginia', 'Wisconsin', 'Wyoming'];
-  yourNewArray: string[];
+  filteredArray: string[];
   tempArray: string[];
-  getuser:Array<object> =[]
-  constructor(private getuserservice : GetusersService) { }
+  getuser: Array<object> = []
+  constructor(private getuserservice: GetusersService) { }
 
   ngOnInit() {
-    this.getuserservice.getUser().subscribe(response=>{
-      console.log(response.data,"wf")
-      this.getuser=response.data;
+    this.getuserservice.getUser().subscribe(response => {
+      this.getuser = response['data'];
     })
   }
 
 
   filterValues(inputValue) {
-    let firstname=[];
-  this.getuser.forEach(eachObj => {
-    // console.log(eachObj.first_name)
-    // console.log(firstname)
-    firstname.push(eachObj.first_name)
-  })
-  this.yourNewArray =firstname.filter(state => state.includes(inputValue.value));
-  if(Object.keys(inputValue.value).length === 0){
-    this.yourNewArray = [];
+    let firstname = [];
+    firstname = this.getuser.map(e => e['first_name'])
+    //use map ...... forEach,filter,map
+    this.filteredArray = firstname.filter(firstname => firstname.includes(inputValue.value) || firstname.includes(inputValue.value.toUpperCase()));
+    if (Object.keys(inputValue.value).length === 0) {
+      this.filteredArray = [];
+    }
   }
-}
-
 }
