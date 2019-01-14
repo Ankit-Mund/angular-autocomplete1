@@ -36,6 +36,9 @@ export class AutocompleteComponent implements OnInit {
   filterValues(inputValue) {
     this.show = true;
     this.filteredItems = this.statesKey.filter(state => state.value.includes(inputValue.value));
+    if (Object.keys(inputValue.value).length === 0) {	
+      this.filteredItems = [];	
+    }
   }
 
   addToSelectedItems(state, inputvalue, index) {
