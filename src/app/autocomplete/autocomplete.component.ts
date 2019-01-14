@@ -15,41 +15,38 @@ export class AutocompleteComponent implements OnInit {
     'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico',
     'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington',
     'West Virginia', 'Wisconsin', 'Wyoming'];
-  filteredItems: string[];
+  filteredItems: Array<any>;
   selectedItems: Set<string> = new Set<string>();
   inputText: string = '';
   show: boolean;
-  selectedIndexes: Set<number> = new Set<number>();
-  // isSelected: boolean = false;
-  // getuser: Array<object> = []
+  statesKey: Array<any> = new Array<any>();
+
   // constructor(private getuserservice: GetusersService) { }
 
   ngOnInit() {
-    // // this.getuserservice.getUser().subscribe(response => {
-    // //   this.getuser = response['data'];
-    // })
+    this.statesKey = this.states.map(e => {
+      return {
+        'value': e,
+        'isSelected': false
+      }
+    })
   }
 
 
   filterValues(inputValue) {
-    this.show = true
-    
-    this.filteredItems = this.states.filter(firstname => firstname.includes(inputValue.value));
-    if (Object.keys(inputValue.value).length === 0) {
-      this.filteredItems = [];
-    }
+    this.show = true;
+    this.filteredItems = this.statesKey.filter(state => state.value.includes(inputValue.value));
   }
 
-  addToSelectedItems(item, val, index) {
-    this.show = false;
-    val.value = '';
-    this.selectedItems.add(item);
-    this.selectedIndexes.add(index);
-    // this.isSelected = true;
-    // this.filteredArray = []  
+  addToSelectedItems(state, inputvalue, index) {
+    this.filteredItems[index].isSelected = true;
+    inputvalue.value = '';
+    this.selectedItems.add(state);  
   }
 
-  deleteItem(item) {
-    this.selectedItems.delete(item)
+  deleteItem(state) {
+    let deleteState = this.filteredItems.find(each => each.value === state)
+    deleteState.isSelected = false
+    this.selectedItems.delete(state)
   }
 }

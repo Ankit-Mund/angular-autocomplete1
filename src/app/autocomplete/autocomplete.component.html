@@ -1,12 +1,11 @@
-<input #inputValue (keyup)="filterValues(inputValue)"  />
+<input #inputValue (keyup)="filterValues(inputValue)" />
 <div *ngIf="show">
-  <ul *ngFor="let item of filteredItems" (click)="addToSelectedItems(item,inputValue)">
-    <li [ngStyle]="isSelected?{'background-color':'green'}:{'background-color':'red'}">{{item}}</li>
+  <ul *ngFor="let item of filteredItems; let index=index" (click)="addToSelectedItems(item.value,inputValue,index)">
+    <li [ngStyle]="item.isSelected?{'background-color':'green'}:{'background-color':'red'}">{{item.value}}</li>
   </ul>
 </div>
 <br>
 <hr>
 <div *ngFor="let eachSelectedItem of selectedItems">
-  <button (click)="deleteItem(eachSelectedItem)">Del</button>
-  {{eachSelectedItem}}
+  <button (click)="deleteItem(eachSelectedItem)">Del</button> {{eachSelectedItem}}
 </div>
