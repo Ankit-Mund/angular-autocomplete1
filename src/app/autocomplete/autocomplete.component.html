@@ -1,7 +1,7 @@
 <input #inputValue (keyup)="filterValues(inputValue)" />
 <div *ngIf="show">
   <ul *ngFor="let item of filteredItems; let index=index" (click)="addToSelectedItems(item.value,inputValue,index)">
-    <li [ngStyle]="item.isSelected?{'background-color':'green'}:{'background-color':'red'}">{{item.value}}</li>
+    <li [ngStyle]="item.isSelected?{'background-color':'green'}:{'background-color':'grey'}">{{item.value}}</li>
   </ul>
 </div>
 <br>
