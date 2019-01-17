@@ -1,0 +1,11 @@
+<!--<ul>
+  <li *ngFor="let eachUser of users">
+    {{eachUser.first_name}}
+  </li>
+</ul>-->
+
+<div *ngIf="users">
+  Pagination
+  <app-pagination [users]="response" [pageNumber]="pageNumber" [currentPage]="page" (goToPrev)="toPrev()" (goToNext)="toNext()"
+    (goToPage)="toPage($event)"></app-pagination>
+</div>

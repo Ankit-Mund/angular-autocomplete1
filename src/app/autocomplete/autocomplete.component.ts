@@ -50,10 +50,11 @@ export class AutocompleteComponent implements OnInit {
     this.show = true;
     this.filteredItems = this.statesKey.filter(state => state.value.includes(inputValue.value));
     if (Object.keys(inputValue.value).length === 0) {
+      this.show = false;
       this.filteredItems = [];
     }
   }
-
+  
   //input parameters - selectedState, user input, index of state
   //adds the selected state to the selectedItems Set, sets isSelected flag to true and clears the text field
   addToSelectedItems(state, inputvalue, index) {
