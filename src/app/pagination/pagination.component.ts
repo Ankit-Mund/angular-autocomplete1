@@ -15,16 +15,21 @@ export class PaginationComponent implements OnInit {
   @Output() goToPage: EventEmitter<any> = new EventEmitter();
   // username : Array<any>;
 
+  totalPages
+
   constructor() { }
 
   ngOnInit() {
     // this.users = this.users.data;
     // console.log(this.users)
-    // console.log(this.pageNumber)
+    // console.log(this.pageNumber.length)
+    // this.totalPages = 1;
   }
 
   ngOnChanges() {
     this.users = this.users['data'];
+    this.totalPages = this.pageNumber.length
+    console.log(this.totalPages,"HE")
   }
 
   goToPrevious() {

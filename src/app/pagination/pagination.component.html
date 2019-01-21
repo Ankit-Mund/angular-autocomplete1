@@ -1,14 +1,16 @@
 <br>
-<div *ngIf="users">
+<!--<div *ngIf="users">-->
   <ul>
     <li *ngFor="let eachUser of users">
       {{eachUser.first_name}}
     </li>
   </ul>
-</div>
+<!--</div>-->
+<div *ngIf="totalPages > 1">
 <button (click)="goToPrevious()">Prev</button>
 <button *ngFor="let eachPage of pageNumber" (click)="toPage(eachPage)" [ngClass]="{'currentPageBtn':eachPage===currentPage}">
   {{eachPage}}
 </button>
 <!--<input #box (keyup.enter)="update(box.value)">-->
 <button (click)="toNext()">Next</button>
+</div>

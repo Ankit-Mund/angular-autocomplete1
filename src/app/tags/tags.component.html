@@ -1,0 +1,5 @@
+{{tags}}
+<hr>
+<span *ngFor="let tag of tags; last as isLast">
+  <button>Del</button> {{tag}} <span *ngIf="!isLast">,</span>
+</span>

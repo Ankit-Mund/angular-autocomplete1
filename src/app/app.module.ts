@@ -10,6 +10,9 @@ import { MainComponentComponent } from './main-component/main-component.componen
 import { GetuserComponent } from './services/getuser/getuser.component';
 
 import { UserService } from './services/user.service';
+import { TagsComponent } from './tags/tags.component';
+import { ParentCompComponent } from './parent-comp/parent-comp.component';
+import { AutocompleteCompComponent } from './autocomplete-comp/autocomplete-comp.component';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { UserService } from './services/user.service';
     PaginationComponent,
     MainComponentComponent,
     GetuserComponent,
+    TagsComponent,
+    ParentCompComponent,
+    AutocompleteCompComponent,
   ],
   imports: [
     BrowserModule,

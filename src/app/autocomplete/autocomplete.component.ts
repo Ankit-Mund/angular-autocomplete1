@@ -61,12 +61,13 @@ export class AutocompleteComponent implements OnInit {
     this.filteredItems[index].isSelected = true;
     inputvalue.value = '';
     this.selectedItems.add(state);
+    this.show=false;
   }
 
   //input parameter - name of state
   //searches for the state to be deleted in filteredItems array(suggestions), sets isSelected to false and deletes the state from selectedItems
   deleteItem(state) {
-    let deleteState = this.filteredItems.find(each => each.value === state)
+    let deleteState = this.statesKey.find(each => each.value === state)
     deleteState.isSelected = false
     this.selectedItems.delete(state)
   }

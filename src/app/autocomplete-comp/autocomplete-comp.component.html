@@ -1,0 +1,8 @@
+<div>
+  <input type="text" #inputValue (keyup)="filterData(inputValue)" (focus)="filterData(inputValue)" (focusout)="hide()">
+  <div *ngIf="show">
+    <li *ngFor="let item of filteredItems" (mousedown)="sendValue(item)">
+      {{item}} 
+    </li>
+  </div>
+</div>
