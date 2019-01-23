@@ -10,6 +10,9 @@ export class AutocompleteCompComponent implements OnInit {
   @Input()
   data;
 
+  @Input()
+  selected;
+
   @Output()
   valueChange = new EventEmitter()
 
@@ -18,7 +21,9 @@ export class AutocompleteCompComponent implements OnInit {
 
   constructor() { }
 
+  
   ngOnInit() {
+  
   }
 
   filterData(inputValue) {
@@ -32,7 +37,7 @@ export class AutocompleteCompComponent implements OnInit {
   }
 
   sendValue(value) {
-    console.log(value);
+    this.valueChange.emit(value);
     this.hide()
   }
 

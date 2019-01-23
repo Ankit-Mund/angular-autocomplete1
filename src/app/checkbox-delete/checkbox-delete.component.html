@@ -1,0 +1,9 @@
+<div *ngFor="let solution of solutions">
+  <p>
+    <input type="checkbox" value={{solution}} (click)="select(solution)" > {{solution.title}}
+  </p>
+</div>
+
+<div *ngFor="let solution of checkedSolutions">
+  {{solution.title}}
+</div>

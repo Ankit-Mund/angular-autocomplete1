@@ -9,6 +9,11 @@ export class ParentCompComponent implements OnInit {
 
   value = "Hello"
 
+  selectedStates = new Set();
+  selectedIndexes = new Set();
+
+  // selectedTags;
+
 
   //dataset containing name of states
   states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
@@ -23,6 +28,16 @@ export class ParentCompComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  valueChanged(value){
+    this.selectedStates.add(value);
+    this.selectedIndexes.add(this.states.indexOf(value));
+  }
+
+  deletedFromSelected(state){
+    this.selectedStates.delete(state);
+    this.selectedIndexes.delete(this.states.indexOf(state));
   }
 
 }

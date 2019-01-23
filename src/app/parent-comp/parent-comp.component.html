@@ -1,3 +1,17 @@
-<app-autocomplete-comp [data]="states">
+<span *ngIf="selectedStates.size">
+SELECTED
+</span>
+<div>
+    <span *ngFor="let state of selectedStates; last as isLast">
+        <button (mousedown)="deletedFromSelected(state)">Del</button>
+        {{state}}     
+        <span *ngIf="!isLast">,</span>
+    </span>
+</div>
+<br>
+<div>
+    <app-autocomplete-comp [data]="states" [selected]="selectedIndexes" (valueChange)="valueChanged($event)">
 
-</app-autocomplete-comp>
+    </app-autocomplete-comp>
+
+</div>

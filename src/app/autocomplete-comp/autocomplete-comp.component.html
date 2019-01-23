@@ -1,8 +1,17 @@
 <div>
   <input type="text" #inputValue (keyup)="filterData(inputValue)" (focus)="filterData(inputValue)" (focusout)="hide()">
   <div *ngIf="show">
-    <li *ngFor="let item of filteredItems" (mousedown)="sendValue(item)">
-      {{item}} 
+    <li *ngFor="let item of filteredItems; let index=index" (mousedown)="sendValue(item)">
+      <span *ngIf="selected.has(index)">
+        <u>{{item}}</u> 
+      </span>
+      <span *ngIf="!selected.has(index)">
+        {{item}}
+      </span>
     </li>
   </div>
+</div>
+
+<div *ngFor="let select of selected">
+  {{select}}
 </div>
