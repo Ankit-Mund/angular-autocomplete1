@@ -37,6 +37,7 @@ export class CheckboxDeleteComponent implements OnInit {
   
   checkedSolutions = new Set();
 
+  myDate = '2015-05-18 02:30:56'
 
   constructor() { }
 
